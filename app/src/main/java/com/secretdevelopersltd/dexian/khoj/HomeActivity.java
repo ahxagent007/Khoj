@@ -1,6 +1,6 @@
 package com.secretdevelopersltd.dexian.khoj;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class HomeActivity extends AppCompatActivity {
