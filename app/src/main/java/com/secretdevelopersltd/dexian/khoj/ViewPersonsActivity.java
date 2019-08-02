@@ -1,10 +1,13 @@
 package com.secretdevelopersltd.dexian.khoj;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,7 +17,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -32,15 +40,74 @@ public class ViewPersonsActivity extends AppCompatActivity {
     //Firebase
     private DatabaseReference mDatabase;
 
+    String CATEGORY;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_persons);
 
+        CATEGORY = getIntent().getStringExtra("CAT");
+        Log.i(TAG, "CATEGORY = "+CATEGORY);
+
         rv_recyclerView = findViewById(R.id.rv_recyclerView);
 
         mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rv_recyclerView.setLayoutManager(mLayoutManager);
+
+
+        //FIREBASE ****************************************************************************************************************************
+        pList = new ArrayList<Person>();
+
+        //Firebase Database
+        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        mDatabase = FirebaseDatabase.getInstance().getReference("DATA");
+
+        Query query = mDatabase.child(CATEGORY);
+
+        /*myTopPostsQuery.addChildEventListener(new ChildEventListener() {
+            // TODO: implement the ChildEventListener methods as documented above
+            // ...
+        });*/
+
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                getPersonFromFirebase(dataSnapshot, pList);
+
+                mRecycleAdapter = new RecycleViewAdapterForAddStock(getApplicationContext(), pList);
+                rv_recyclerView.setAdapter(mRecycleAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void getPersonFromFirebase(DataSnapshot dataSnapshot, ArrayList<Person> PersonList){
+        PersonList.clear();
+
+        //Log.i(TAG,"First Product List size "+productList.size());
+        for(DataSnapshot ds : dataSnapshot.getChildren()){
+
+            Person p = ds.getValue(Person.class);
+            PersonList.add(p);
+
+            //Log.i(TAG,p.getID()+" "+p.getProductName());
+        }
+        Log.i(TAG,"Person List size "+PersonList.size());
+
+    }
+
+    private void makeCall(String number){
+
+        Intent intent = new Intent(Intent.ACTION_CALL);
+
+        intent.setData(Uri.parse("tel:" + number));
+        startActivity(intent);
+
     }
 
     public class RecycleViewAdapterForAddStock extends RecyclerView.Adapter<RecycleViewAdapterForAddStock.ViewHolder> {
@@ -96,6 +163,9 @@ public class ViewPersonsActivity extends AppCompatActivity {
                         //ShowPigeonDetails(PersonList.get(position));
 
                         //*****Call HERE
+                        Log.i(TAG, "TEL:"+PersonList.get(position).getNUMBER());
+                        makeCall(PersonList.get(position).getNUMBER());
+
                     }
                 }
             });
@@ -143,6 +213,8 @@ public class ViewPersonsActivity extends AppCompatActivity {
         }
 
     }
+
+
 
 
 }

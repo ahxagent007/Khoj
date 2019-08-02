@@ -22,7 +22,8 @@
                 android:layout_height="70dp"
                 android:textSize="25dp"
                 android:textStyle="bold"
-                android:text="Blood Donor"/>
+                android:text="Blood Donor"
+                android:onClick="CLICKED"/>
 
 
 
@@ -32,7 +33,8 @@
                 android:layout_height="70dp"
                 android:textSize="25dp"
                 android:textStyle="bold"
-                android:text="Doctor"/>
+                android:text="Doctor"
+                android:onClick="CLICKED"/>
 
             <Button
                 android:id="@+id/btn_hospital"
@@ -40,7 +42,17 @@
                 android:layout_height="70dp"
                 android:textSize="25dp"
                 android:textStyle="bold"
-                android:text="Hospital"/>
+                android:text="Hospital"
+                android:onClick="CLICKED"/>
+
+            <Button
+                android:id="@+id/btn_veterinarian"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="Veterinarian"
+                android:onClick="CLICKED"/>
 
             <Button
                 android:id="@+id/btn_mechanic"
@@ -48,8 +60,8 @@
                 android:layout_height="70dp"
                 android:textSize="25dp"
                 android:textStyle="bold"
-                android:text="Mechanic"/>
-
+                android:text="Mechanic"
+                android:onClick="CLICKED"/>
 
 
             <Button
@@ -58,7 +70,8 @@
                 android:layout_height="70dp"
                 android:textSize="25dp"
                 android:textStyle="bold"
-                android:text="Police"/>
+                android:text="Police"
+                android:onClick="CLICKED"/>
 
             <Button
                 android:id="@+id/btn_fireService"
@@ -66,7 +79,8 @@
                 android:layout_height="70dp"
                 android:textSize="25dp"
                 android:textStyle="bold"
-                android:text="Fire Service"/>
+                android:text="Fire Service"
+                android:onClick="CLICKED"/>
 
             <Button
                 android:id="@+id/btn_bank"
@@ -74,7 +88,8 @@
                 android:layout_height="70dp"
                 android:textSize="25dp"
                 android:textStyle="bold"
-                android:text="Bank"/>
+                android:text="Bank"
+                android:onClick="CLICKED"/>
 
             <Button
                 android:id="@+id/btn_electricWorker"
@@ -82,7 +97,8 @@
                 android:layout_height="70dp"
                 android:textSize="25dp"
                 android:textStyle="bold"
-                android:text="Electric Worker"/>
+                android:text="Electric Worker"
+                android:onClick="CLICKED"/>
 
             <Button
                 android:id="@+id/btn_gasWorker"
@@ -90,15 +106,10 @@
                 android:layout_height="70dp"
                 android:textSize="25dp"
                 android:textStyle="bold"
-                android:text="Gas Worker"/>
+                android:text="Gas Worker"
+                android:onClick="CLICKED"/>
 
-            <Button
-                android:id="@+id/btn_veterinarian"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:textSize="25dp"
-                android:textStyle="bold"
-                android:text="Veterinarian"/>
+
 
             <Button
                 android:id="@+id/btn_university"
@@ -106,7 +117,8 @@
                 android:layout_height="70dp"
                 android:textSize="25dp"
                 android:textStyle="bold"
-                android:text="University"/>
+                android:text="University"
+                android:onClick="CLICKED"/>
 
             <Button
                 android:id="@+id/btn_governmentHotLine"
@@ -114,7 +126,8 @@
                 android:layout_height="70dp"
                 android:textSize="25dp"
                 android:textStyle="bold"
-                android:text="Government Hot Line"/>
+                android:text="Government Hot Line"
+                android:onClick="CLICKED"/>
 
         </LinearLayout>
 
