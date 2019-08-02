@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_bloodDonor"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="Blood Donor"/>
+
+
+
+            <Button
+                android:id="@+id/btn_doctor"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="Doctor"/>
+
+            <Button
+                android:id="@+id/btn_hospital"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="Hospital"/>
+
+            <Button
+                android:id="@+id/btn_mechanic"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="Mechanic"/>
+
+
+
+            <Button
+                android:id="@+id/btn_police"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="Police"/>
+
+            <Button
+                android:id="@+id/btn_fireService"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="Fire Service"/>
+
+            <Button
+                android:id="@+id/btn_bank"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="Bank"/>
+
+            <Button
+                android:id="@+id/btn_electricWorker"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="Electric Worker"/>
+
+            <Button
+                android:id="@+id/btn_gasWorker"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="Gas Worker"/>
+
+            <Button
+                android:id="@+id/btn_veterinarian"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="Veterinarian"/>
+
+            <Button
+                android:id="@+id/btn_university"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="University"/>
+
+            <Button
+                android:id="@+id/btn_governmentHotLine"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="Government Hot Line"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
