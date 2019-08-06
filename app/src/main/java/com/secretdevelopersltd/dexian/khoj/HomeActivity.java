@@ -56,7 +56,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onAdFailedToLoad(int errorCode) {
                 // Code to be executed when an ad request fails.
-                Log.i(TAG, "Code to be executed when an ad request fails.");
+                Log.i(TAG, "Code to be executed when an ad request fails. ERROR_CODE = "+errorCode);
             }
 
             @Override
@@ -160,6 +160,7 @@ public class HomeActivity extends AppCompatActivity {
             mInterstitialAd.show();
         } else {
             Log.i(TAG, "The interstitial wasn't loaded yet.");
+            mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         }
 

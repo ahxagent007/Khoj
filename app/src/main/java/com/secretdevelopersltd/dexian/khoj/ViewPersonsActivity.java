@@ -2,11 +2,15 @@ package com.secretdevelopersltd.dexian.khoj;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,6 +45,8 @@ public class ViewPersonsActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
 
     String CATEGORY;
+
+    private static final int REQUEST_PHONE_CALL = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,7 +112,16 @@ public class ViewPersonsActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_CALL);
 
         intent.setData(Uri.parse("tel:" + number));
-        startActivity(intent);
+
+        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(ViewPersonsActivity.this, new String[]{Manifest.permission.CALL_PHONE},REQUEST_PHONE_CALL);
+
+        }
+        else
+        {
+            startActivity(intent);
+        }
+        //startActivity(intent);
 
     }
 
